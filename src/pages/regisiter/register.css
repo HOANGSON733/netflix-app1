@@ -1,0 +1,131 @@
+.register {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8) 100%,
+
+      rgba(0, 0, 0, 0.71) 100%
+    ),
+    url("../../../public/Hero\ Image.png");
+  background-size: cover;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.488);
+}
+.wrapper {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.logo {
+  height: 40px;
+}
+
+.loginButton {
+  background-color: red;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.container h1 {
+  font-size: 50px;
+}
+
+.container h2 {
+  margin: 20px;
+}
+.container p {
+  font-size: 20px;
+}
+
+.input {
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.57);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.input input {
+  flex: 9;
+  background-color: rgba(0, 0, 0, 0.504);
+  height: 100%;
+  border: none;
+  padding: 0 10px;
+  color: white;
+}
+
+.input input :focus {
+  outline: none;
+}
+
+.registerButton {
+  flex: 3;
+  height: 100%;
+  background-color: red;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/*  */
+.contents {
+  margin-top: -20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.register_background {
+  text-align: center;
+  padding: 20px;
+  background: rgba(103, 0, 98, 0.142);
+  background: radial-gradient(
+    circle,
+    rgba(255, 2, 242, 0.071) 0%,
+    rgba(0, 0, 0, 0.8996848739495799) 100%
+  );
+  background-repeat: no-repeat;
+  height: 100px;
+  margin-top: -20px;
+  width: 100%;
+}
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 30px;
+}
+.content_text {
+  margin: auto;
+}
+.content_text h1 {
+  font-size: 4rem;
+}
+.content_text p{
+  font-size: 20px;
+}
+.content_img img {
+  width: 100%;
+}
