@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import "./register.css";
 
 export default function Register() {
@@ -29,13 +30,13 @@ export default function Register() {
           </div>
         </div>
       </div>
+
       {/* <div className="contents">
-        <div className="register_background"><p>akjlfbdafbp</p></div>
-        <div className="contents_list">
-
+        <div className="register_background"><p>akjlfbdafbp</p>
         </div>
-
-    </div> */}
+        <div className="contents_list">
+        </div>
+        </div> */}
       <div className="content">
         <div className="content_text">
           <h1>Enjoy on your TV</h1>
@@ -49,6 +50,7 @@ export default function Register() {
         <div className="content_img">
           <img src="../../../z5458546792117_276bcd33cbf78ab0b3f91b6672a381c1.jpg" />
         </div>
+        
 
         <div className="content_text">
           <h1>Enjoy on your TV</h1>

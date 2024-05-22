@@ -1,5 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
-import { fetchPopularMovies, getphimhoathinh, getphimle, getTvShow } from "../../api/Api";
+import {
+  fetchPopularMovies,
+  getphimhoathinh,
+  getphimle,
+  getTvShow,
+} from "../../api/Api";
 import { Link } from "react-router-dom";
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 import Slider from "react-slick";
@@ -45,7 +51,6 @@ const PopularMoviesPage = () => {
         const { TvShow } = await getTvShow();
         setTvShow(TvShow);
         console.log("Check >>>12", TvShow);
-
       } catch (error) {
         console.error("Error fetching popular movies:", error);
       }
@@ -89,6 +94,13 @@ const PopularMoviesPage = () => {
 
   return (
     <div>
+      <div className="banner">
+        {popularMovies.map((movie) => (
+          <div key={movie.id} className="banner_img">
+            <img src={`${movie.thumb_url}`} />
+          </div>
+        ))}
+      </div>
       <div className="list">
         <h1>Phim Mới Cập Nhật</h1>
         <Slider {...settings}>
@@ -98,6 +110,7 @@ const PopularMoviesPage = () => {
                 <Link to={`/movie/chitiet/${movie.slug}`}>
                   <img src={`${movie.poster_url}`} alt={movie.name} />
                 </Link>
+                {movie.tiem}
               </div>
               <div>
                 <h2 className="an">
@@ -113,52 +126,56 @@ const PopularMoviesPage = () => {
             <div key={movie.id} className="movie">
               <div className="movie_img">
                 <Link to={`/movie/chitiet/${movie.slug}`}>
-                  <img src={`https://img.phimapi.com/${movie.poster_url}`} alt={movie.name} />
+                  <img
+                    src={`https://img.phimapi.com/${movie.poster_url}`}
+                    alt={movie.name}
+                  />
                 </Link>
               </div>
               <div>
                 <h2 className="an">
-             
                   <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
                 </h2>
               </div>
             </div>
           ))}
         </Slider>
-        <br/>
+        <br />
         <h1>Phim Hoạt Hình</h1>
         <Slider {...settings}>
-          
           {hoathinh.map((movie) => (
             <div key={movie.id} className="movie">
               <div className="movie_img">
                 <Link to={`/movie/chitiet/${movie.slug}`}>
-                  <img src={`https://img.phimapi.com/${movie.poster_url}`} alt={movie.name} />
+                  <img
+                    src={`https://img.phimapi.com/${movie.poster_url}`}
+                    alt={movie.name}
+                  />
                 </Link>
               </div>
               <div>
                 <h2 className="an">
-                 
                   <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
                 </h2>
               </div>
             </div>
           ))}
         </Slider>
-        
+
         <h1>TvShow</h1>
         <Slider {...settings}>
-          
           {TvShow.map((movie) => (
             <div key={movie.id} className="movie">
               <div className="movie_img">
                 <Link to={`/movie/chitiet/${movie.slug}`}>
-                  <img src={`https://img.phimapi.com/${movie.poster_url}`} alt={movie.name} />
+                  <img
+                    src={`https://img.phimapi.com/${movie.poster_url}`}
+                    alt={movie.name}
+                  />
                 </Link>
               </div>
               <div>
                 <h2 className="an">
-                 
                   <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
                 </h2>
               </div>

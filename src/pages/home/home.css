@@ -1,3 +1,41 @@
+.banner {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px;
+  background-color: #333;
+  scrollbar-width: none; /* For Firefox */
+}
+
+.banner::-webkit-scrollbar {
+ }
+
+.banner_img {
+  position: relative;
+  margin-right: 20px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.banner_img img {
+  max-width: 200px;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.banner_img:hover {
+  transform: scale(1.05);
+}
+
+.banner_time {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .list {
   padding: 20px 100px;
   position: relative;
@@ -33,7 +71,10 @@
   height: 350px;
   object-fit: cover;
 }
-
+.movie img:hover {
+  border-radius: 10px;
+  transform: scale(1.05);
+}
 .movie h2 {
   margin-top: 0;
   margin-bottom: 10px;
@@ -50,7 +91,7 @@
   z-index: 1;
   font-size: 2rem;
   cursor: pointer;
-  color: black; /* You can change the color as per your design */
+  color: black; 
 }
 
 .next-arrow {
