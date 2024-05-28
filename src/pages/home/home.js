@@ -6,12 +6,14 @@ import {
   getphimle,
   getTvShow,
 } from "../../api/Api";
+import { FaRegCirclePlay } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./home.css";
+import Carousel from "../../components/carousel/carousel";
 
 // Tạo component NextArrow
 const NextArrow = ({ onClick }) => (
@@ -42,7 +44,7 @@ const PopularMoviesPage = () => {
 
         const { phimle } = await getphimle();
         setphimle(phimle);
-        console.log("Check >>>12", phimle);
+        console.log("Check >>>11", phimle);
 
         const { hoathinh } = await getphimhoathinh();
         sethoathinh(hoathinh);
@@ -50,7 +52,7 @@ const PopularMoviesPage = () => {
 
         const { TvShow } = await getTvShow();
         setTvShow(TvShow);
-        console.log("Check >>>12", TvShow);
+        console.log("Check >>>13", TvShow);
       } catch (error) {
         console.error("Error fetching popular movies:", error);
       }
@@ -94,12 +96,8 @@ const PopularMoviesPage = () => {
 
   return (
     <div>
-      <div className="banner">
-        {popularMovies.map((movie) => (
-          <div key={movie.id} className="banner_img">
-            <img src={`${movie.thumb_url}`} />
-          </div>
-        ))}
+      <div>
+        <Carousel />
       </div>
       <div className="list">
         <h1>Phim Mới Cập Nhật</h1>
@@ -107,8 +105,10 @@ const PopularMoviesPage = () => {
           {popularMovies.map((movie) => (
             <div key={movie.id} className="movie">
               <div className="movie_img">
+                
                 <Link to={`/movie/chitiet/${movie.slug}`}>
                   <img src={`${movie.poster_url}`} alt={movie.name} />
+                  
                 </Link>
                 {movie.tiem}
               </div>
@@ -119,6 +119,7 @@ const PopularMoviesPage = () => {
               </div>
             </div>
           ))}
+          
         </Slider>
         <h1>Phim Lẻ</h1>
         <Slider {...settings}>
@@ -183,6 +184,7 @@ const PopularMoviesPage = () => {
           ))}
         </Slider>
       </div>
+      
     </div>
   );
 };

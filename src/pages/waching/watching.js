@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getchitiet } from "../../api/Api";
 import Hls from "hls.js";
-// import "./watch.css";
+import "./watch.css";
+import Loading from "../../components/loading/loading";
 
 const DetailsMovie = () => {
   const { slug } = useParams();
@@ -10,17 +11,29 @@ const DetailsMovie = () => {
   const [episodes, setEpisodes] = useState([]);
   const videoRef = useRef(null);
   const [activeLink, setActiveLink] = useState("");
+  const [loadingVideo, setLoadingVideo] = useState(true);
+  const [videoReady, setVideoReady] = useState(false);
 
   const handleClick = (link) => {
     setActiveLink(link);
+    setLoadingVideo(true); // Set loading state to true when a new link is clicked
+    setVideoReady(false);
+
     const video = videoRef.current;
-    console.log("jsfjkscsakc j", video);
     if (Hls.isSupported()) {
       const hls = new Hls();
       hls.loadSource(link);
       hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        setLoadingVideo(false);
+        setVideoReady(true);
+      });
     } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = link;
+      video.addEventListener("loadeddata", () => {
+        setLoadingVideo(false);
+        setVideoReady(true);
+      });
     }
   };
 
@@ -43,20 +56,45 @@ const DetailsMovie = () => {
     fetchData();
   }, [slug]);
 
+  const handlePlay = () => {
+    const video = videoRef.current;
+    video.play();
+  };
+
+  const handleVideoLoad = () => {
+    setTimeout(() => {
+      setLoadingVideo(false);
+    }, 16000); // Adjust the delay as needed (1000 ms = 1 second)
+  };
+
   return (
     <div>
       {details ? (
         <div className="details_container">
-          <div
-            // style={{ backgroundImage: `url('${details.thumb_url}')` }}
-            // className="video"
-          >
-            <video ref={videoRef} width="100%" height="auto" controls>
+          <div className="video">
+            {loadingVideo && (
+              <div className="loading-video">
+                <img src="https://images.viblo.asia/a87852d0-d60c-4a7c-ae42-0bfb6679ecb3.gif" alt="Loading" />
+              </div>
+            )}
+            {!videoReady && !loadingVideo && (
+              <div className="play-button" onClick={handlePlay}>
+                ▶
+              </div>
+            )}
+            <video
+              ref={videoRef}
+              width="100%"
+              height="auto"
+              controls
+              onLoadedData={handleVideoLoad} // Use the handleVideoLoad function
+            >
               Your browser does not support the video tag.
             </video>
           </div>
+          <div></div>
           <div className="episodes">
-            <div className="title">
+            <div className="title1">
               <h5>Danh sách phim</h5>
             </div>
             {episodes.length > 0 ? (
@@ -68,11 +106,11 @@ const DetailsMovie = () => {
                         onClick={() => handleClick(item.link_m3u8)}
                         style={
                           activeLink === item.link_m3u8
-                            ? { background: "#359000" }
+                            ? { background: "#eb0000" }
                             : {}
                         }
                       >
-                        {item.name}
+                        {item.name} 
                       </button>
                     </div>
                   ))}
@@ -85,7 +123,7 @@ const DetailsMovie = () => {
         </div>
       ) : (
         <div className="loading">
-          loadding......
+          <Loading />
         </div>
       )}
     </div>

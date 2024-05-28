@@ -5,7 +5,11 @@ import NavBar from "./components/navbar/navbar";
 import ChiTiet from "./pages/chitiet/chitiet";
 import { Route, Routes } from "react-router";
 import Watch from "./pages/waching/watching";
+import TimKiem from "./pages/ketquatimkiem/ketqua";
+import Phimle from "./pages/Phim le/phimle";
+
 function App() {
+
   return (
     <div>
       <NavBar />
@@ -15,6 +19,8 @@ function App() {
         <Route path="/movie/chitiet/:slug" element={<ChiTiet />}></Route>
         <Route path="/movie/chitietphim/watch/:slug" element={<Watch />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/movie/phim-le" element={<Phimle/>} />
+        <Route path="/movie/search/keyword/:keyword" element={<TimKiem />} />
       </Routes>
     </div>
   );
