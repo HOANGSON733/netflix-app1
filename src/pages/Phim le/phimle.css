@@ -1,0 +1,88 @@
+.film_component {
+    margin-top: 100px;
+    padding: 20px;
+    /* background-color: #363636; */
+  
+  }
+  .film_componet_loc{
+      align-items: center;
+  }
+  .category2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .loading1{
+    display: flex;
+    justify-content: last baseline;
+    text-align: center;
+  }
+  .search-bar {
+    width: 30%;margin-right: 5px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ff89891c;
+  }
+  .filter-select{
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  .button{
+    background-color: #ddd;
+    padding: 10px 20px;
+  }
+  .list2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .movie2 {
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie2 img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .year,
+  .title2 {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  .page-item {
+    margin: 0 5px;
+  }
+  
+  .page-item .page-link {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+  
+  .page-item .page-link:hover {
+    background-color: #ddd;
+  }
+  

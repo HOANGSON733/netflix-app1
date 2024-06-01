@@ -54,16 +54,16 @@ const Navbar = () => {
             <Link to="/">Trang chủ</Link>
           </li>
           <li>
-            <Link to="/news">phim bộ</Link>
+            <Link to="/movie/phim-bo">phim bộ</Link>
           </li>
           <li>
             <Link to="/movie/phim-le">phim lẻ</Link>
           </li>
           <li>
-            <Link to="/news">Tv show</Link>
+            <Link to="/danh-sach/tv-shows">Tv show</Link>
           </li>
           <li>
-            <Link to="/news">hoạt hình</Link>
+            <Link to="/movie/hoat-hinh">hoạt hình</Link>
           </li>
           <li className="dropdown">
             <span className="dropbtn" onClick={handleDropdownClick}>
