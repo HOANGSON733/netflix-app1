@@ -5,8 +5,9 @@ import {
   getphimhoathinh,
   getphimle,
   getTvShow,
+  getphimbo,
 } from "../../api/Api";
-import { FaRegCirclePlay } from "react-icons/fa6";
+import { FaChevronRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 import Slider from "react-slick";
@@ -32,6 +33,7 @@ const PrevArrow = ({ onClick }) => (
 const PopularMoviesPage = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [phimle, setphimle] = useState([]);
+  const [phimbo, setphimbo] = useState([]);
   const [hoathinh, sethoathinh] = useState([]);
   const [TvShow, setTvShow] = useState([]);
 
@@ -45,6 +47,10 @@ const PopularMoviesPage = () => {
         const { phimle } = await getphimle();
         setphimle(phimle);
         console.log("Check >>>11", phimle);
+
+        const { phimbo } = await getphimbo();
+        setphimbo(phimbo);
+        console.log("Check >>>11", phimbo);
 
         const { hoathinh } = await getphimhoathinh();
         sethoathinh(hoathinh);
@@ -100,15 +106,17 @@ const PopularMoviesPage = () => {
         <Carousel />
       </div>
       <div className="list">
-        <h1>Phim Mới Cập Nhật</h1>
+        <Link to="/new-movies" className="link">
+          <h1>
+            Phim Mới Cập Nhật <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
         <Slider {...settings}>
           {popularMovies.map((movie) => (
             <div key={movie.id} className="movie">
               <div className="movie_img">
-                
                 <Link to={`/movie/chitiet/${movie.slug}`}>
                   <img src={`${movie.poster_url}`} alt={movie.name} />
-                  
                 </Link>
                 {movie.tiem}
               </div>
@@ -119,9 +127,12 @@ const PopularMoviesPage = () => {
               </div>
             </div>
           ))}
-          
         </Slider>
-        <h1>Phim Lẻ</h1>
+        <Link to="/movie/phim-le" className="link">
+          <h1>
+            Phim Lẻ <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
         <Slider {...settings}>
           {phimle.map((movie) => (
             <div key={movie.id} className="movie">
@@ -141,8 +152,36 @@ const PopularMoviesPage = () => {
             </div>
           ))}
         </Slider>
+        <Link to="/movie/phim-bo" className="link">
+          <h1>
+            Phim Bộ <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
+        <Slider {...settings}>
+          {phimbo.map((movie) => (
+            <div key={movie.id} className="movie">
+              <div className="movie_img">
+                <Link to={`/movie/chitiet/${movie.slug}`}>
+                  <img
+                    src={`https://img.phimapi.com/${movie.poster_url}`}
+                    alt={movie.name}
+                  />
+                </Link>
+              </div>
+              <div>
+                <h2 className="an">
+                  <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
+                </h2>
+              </div>
+            </div>
+          ))}
+        </Slider>
         <br />
-        <h1>Phim Hoạt Hình</h1>
+        <Link to="/movie/hoat-hinh" className="link">
+          <h1>
+            Phim Hoạt Hình <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
         <Slider {...settings}>
           {hoathinh.map((movie) => (
             <div key={movie.id} className="movie">
@@ -163,7 +202,11 @@ const PopularMoviesPage = () => {
           ))}
         </Slider>
 
-        <h1>TvShow</h1>
+        <Link to="/danh-sach/tv-shows" className="link">
+          <h1>
+            TV Show <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
         <Slider {...settings}>
           {TvShow.map((movie) => (
             <div key={movie.id} className="movie">
@@ -184,7 +227,6 @@ const PopularMoviesPage = () => {
           ))}
         </Slider>
       </div>
-      
     </div>
   );
 };

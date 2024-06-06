@@ -44,7 +44,7 @@ const Banner = () => {
               style={{ width: "100%", height: "100%" }}
             />
             <div className="text">
-              <h1>welcome .</h1>
+              <h1>welcome</h1>
               <p>
                 Millions of movies, TV shows and people to discover. Explore
                 now.

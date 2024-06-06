@@ -10,6 +10,7 @@ import Phimle from "./pages/Phim le/phimle";
 import Phimbo from "./pages/Phim bo/phimbo";
 import TvShow from "./pages/Tv Show/Tvshow";
 import PhimHoatHinh from "./pages/Phim Hoat Hinh/phimhoathinh";
+import Footer from "./components/footer/footer";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/danh-sach/tv-shows" element={<TvShow/>} />
         <Route path="/movie/search/keyword/:keyword" element={<TimKiem />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
