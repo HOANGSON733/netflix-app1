@@ -6,7 +6,6 @@ import {
   getphimle,
   getTvShow,
 } from "../../api/Api";
-import { FaRegCirclePlay } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 import Slider from "react-slick";
