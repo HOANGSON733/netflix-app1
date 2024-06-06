@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/HOANGSON733.github.io/deploy-github/static/css/main.b65b90ff.css",
-    "main.js": "/HOANGSON733.github.io/deploy-github/static/js/main.97d4c6a3.js",
-    "static/media/Hero Image.png": "/HOANGSON733.github.io/deploy-github/static/media/Hero Image.4daa300cc2191154ec04.png",
-    "static/media/slick.svg": "/HOANGSON733.github.io/deploy-github/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/HOANGSON733.github.io/deploy-github/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/HOANGSON733.github.io/deploy-github/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "index.html": "/HOANGSON733.github.io/deploy-github/index.html",
-    "static/media/slick.woff": "/HOANGSON733.github.io/deploy-github/static/media/slick.295183786cd8a1389865.woff",
-    "main.b65b90ff.css.map": "/HOANGSON733.github.io/deploy-github/static/css/main.b65b90ff.css.map",
-    "main.97d4c6a3.js.map": "/HOANGSON733.github.io/deploy-github/static/js/main.97d4c6a3.js.map"
+    "main.css": "/netflix-app/static/css/main.0a7ac1a1.css",
+    "main.js": "/netflix-app/static/js/main.4a3be04a.js",
+    "static/media/slick.svg": "/netflix-app/static/media/slick.2630a3e3eab21c607e21.svg",
+    "index.html": "/netflix-app/index.html",
+    "static/media/slick.eot": "/netflix-app/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/netflix-app/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/netflix-app/static/media/slick.295183786cd8a1389865.woff",
+    "main.0a7ac1a1.css.map": "/netflix-app/static/css/main.0a7ac1a1.css.map",
+    "main.4a3be04a.js.map": "/netflix-app/static/js/main.4a3be04a.js.map"
   },
   "entrypoints": [
-    "static/css/main.b65b90ff.css",
-    "static/js/main.97d4c6a3.js"
+    "static/css/main.0a7ac1a1.css",
+    "static/js/main.4a3be04a.js"
   ]
 }
