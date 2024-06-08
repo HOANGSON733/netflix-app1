@@ -5,7 +5,9 @@ import {
   getphimhoathinh,
   getphimle,
   getTvShow,
+  getphimbo,
 } from "../../api/Api";
+import { FaChevronRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 import Slider from "react-slick";
@@ -32,6 +34,7 @@ const PrevArrow = ({ onClick }) => (
 const PopularMoviesPage = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [phimle, setphimle] = useState([]);
+  const [phimbo, setphimbo] = useState([]);
   const [hoathinh, sethoathinh] = useState([]);
   const [TvShow, setTvShow] = useState([]);
 
@@ -45,6 +48,10 @@ const PopularMoviesPage = () => {
         const { phimle } = await getphimle();
         setphimle(phimle);
         console.log("Check >>>11", phimle);
+
+        const { phimbo } = await getphimbo();
+        setphimbo(phimbo);
+        console.log("Check >>>11", phimbo);
 
         const { hoathinh } = await getphimhoathinh();
         sethoathinh(hoathinh);
@@ -97,6 +104,7 @@ const PopularMoviesPage = () => {
   return (
     <>{popularMovies.length>0 && phimle.length>0 && hoathinh.length>0 && TvShow.length>0 ? (
       <div>
+<<<<<<< HEAD
         <div>
           <Carousel />
         </div>
@@ -118,6 +126,122 @@ const PopularMoviesPage = () => {
                     <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
                   </h2>
                 </div>
+=======
+        <Carousel />
+      </div>
+      <div className="list">
+        <Link to="/new-movies" className="link">
+          <h1>
+            Phim Mới Cập Nhật <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
+        <Slider {...settings}>
+          {popularMovies.map((movie) => (
+            <div key={movie.id} className="movie">
+              <div className="movie_img">
+                <Link to={`/movie/chitiet/${movie.slug}`}>
+                  <img src={`${movie.poster_url}`} alt={movie.name} />
+                </Link>
+                {movie.tiem}
+              </div>
+              <div>
+                <h2 className="an">
+                  <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
+                </h2>
+              </div>
+            </div>
+          ))}
+        </Slider>
+        <Link to="/movie/phim-le" className="link">
+          <h1>
+            Phim Lẻ <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
+        <Slider {...settings}>
+          {phimle.map((movie) => (
+            <div key={movie.id} className="movie">
+              <div className="movie_img">
+                <Link to={`/movie/chitiet/${movie.slug}`}>
+                  <img
+                    src={`https://img.phimapi.com/${movie.poster_url}`}
+                    alt={movie.name}
+                  />
+                </Link>
+              </div>
+              <div>
+                <h2 className="an">
+                  <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
+                </h2>
+              </div>
+            </div>
+          ))}
+        </Slider>
+        <Link to="/movie/phim-bo" className="link">
+          <h1>
+            Phim Bộ <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
+        <Slider {...settings}>
+          {phimbo.map((movie) => (
+            <div key={movie.id} className="movie">
+              <div className="movie_img">
+                <Link to={`/movie/chitiet/${movie.slug}`}>
+                  <img
+                    src={`https://img.phimapi.com/${movie.poster_url}`}
+                    alt={movie.name}
+                  />
+                </Link>
+              </div>
+              <div>
+                <h2 className="an">
+                  <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
+                </h2>
+              </div>
+            </div>
+          ))}
+        </Slider>
+        <br />
+        <Link to="/movie/hoat-hinh" className="link">
+          <h1>
+            Phim Hoạt Hình <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
+        <Slider {...settings}>
+          {hoathinh.map((movie) => (
+            <div key={movie.id} className="movie">
+              <div className="movie_img">
+                <Link to={`/movie/chitiet/${movie.slug}`}>
+                  <img
+                    src={`https://img.phimapi.com/${movie.poster_url}`}
+                    alt={movie.name}
+                  />
+                </Link>
+              </div>
+              <div>
+                <h2 className="an">
+                  <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
+                </h2>
+              </div>
+            </div>
+          ))}
+        </Slider>
+
+        <Link to="/danh-sach/tv-shows" className="link">
+          <h1>
+            TV Show <FaChevronRight className="iconright" />
+          </h1>
+        </Link>
+        <Slider {...settings}>
+          {TvShow.map((movie) => (
+            <div key={movie.id} className="movie">
+              <div className="movie_img">
+                <Link to={`/movie/chitiet/${movie.slug}`}>
+                  <img
+                    src={`https://img.phimapi.com/${movie.poster_url}`}
+                    alt={movie.name}
+                  />
+                </Link>
+>>>>>>> 1da3e5217be024edcabf8ee38c48e4195cfe4f63
               </div>
             ))}
 
@@ -186,11 +310,15 @@ const PopularMoviesPage = () => {
           </Slider>
         </div>
       </div>
+<<<<<<< HEAD
     ) : (
       <Loading />
     )}
 
     </>
+=======
+    </div>
+>>>>>>> 1da3e5217be024edcabf8ee38c48e4195cfe4f63
   );
 };
 

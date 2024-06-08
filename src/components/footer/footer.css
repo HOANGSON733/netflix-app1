@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* footer.css */
 
 .footer {
@@ -95,5 +96,72 @@
     .footer-column {
       align-items: center;
     }
+=======
+/* Footer.css */
+.footer {
+    background-color: #141414;
+    padding: 40px 20px;
+    color: #757575;
+  }
+  
+  .footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .footer-links ul li {
+    margin: 0 15px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-links ul li a {
+    color: #757575;
+    text-decoration: none;
+  }
+  
+  .footer-links ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-social ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .footer-social ul li {
+    margin: 0 15px;
+  }
+  
+  .footer-social ul li a {
+    color: #757575;
+    font-size: 20px;
+  }
+  
+  .footer-social ul li a:hover {
+    color: #fff;
+  }
+  
+  .footer-info {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .footer-info p {
+    margin: 5px 0;
+>>>>>>> 1da3e5217be024edcabf8ee38c48e4195cfe4f63
   }
   

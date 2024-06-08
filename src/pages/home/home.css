@@ -6,8 +6,6 @@
   scrollbar-width: none; /* For Firefox */
 }
 
-.banner::-webkit-scrollbar {
- }
 
 .banner_img {
   position: relative;
@@ -18,7 +16,7 @@
 
 .banner_img img {
   max-width: 200px;
-  height: 100%;
+  height: 90%;
   border-radius: 10px;
 }
 
@@ -37,26 +35,73 @@
 }
 
 .list {
-  padding: 20px 100px;
+  padding: 20px 150px;
   position: relative;
   color: white;
 }
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
 
+<<<<<<< HEAD
 .list h1{
   padding: 10px 0 20px 0;
   font-size: 20px;
   color: #f59e0b;
 }
 
+=======
+.link:hover {
+  color: #ff0000; /* Thay đổi màu khi hover, nếu muốn */
+}
+
+.link h1 {
+  padding: 10px 0;
+  display: flex;
+  font-size: 1.5em;
+  align-items: center;
+  transition: transform 0.3s; /* Chuyển đổi cho toàn bộ h1 */
+}
+
+.iconright {
+    
+  font-size: 20px;
+  margin-left: 10px;
+  transition: transform 0.3s; /* Chuyển đổi cho icon */
+}
+
+.link:hover .iconright {
+  transform: translateX(5px); /* Đẩy icon sang phải khi hover */
+}
+/* .list h1{
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+}
+.iconright{ padding: 0 10px;
+font-size: 20px;}
+.list h1:hover{
+color: #333;
+} */
+>>>>>>> 1da3e5217be024edcabf8ee38c48e4195cfe4f63
 .an {
   white-space: nowrap;
   width: 95%;
+  font-size: 1.2em;
   overflow: hidden;
   text-overflow: ellipsis;
   text-decoration: none;
+<<<<<<< HEAD
   font-size: 18px;
+=======
+>>>>>>> 1da3e5217be024edcabf8ee38c48e4195cfe4f63
   padding: 10px 0;
 }
+
 
 .movie {
   background-color: #000000;
@@ -68,20 +113,20 @@
 
 .movie a {
   text-decoration: none;
-  padding: 20px 0;
+
   color: white;
 }
 
 .movie img {
-  border-radius: 10px;
+  border-radius: 7px;
   background-size: cover;
-  width: 100%;
-  height: 350px;
+  width: 95%;
+  height: 320px;
   object-fit: cover;
   transition: transform 0.3s;
 }
 .movie img:hover {
-  border-radius: 10px;
+  border-radius: 7px;
   transform: scale(1.04);
 }
 .movie h2 {
@@ -100,7 +145,7 @@
   z-index: 1;
   font-size: 2rem;
   cursor: pointer;
-  color: rgb(70, 70, 70); 
+  color: rgb(255, 255, 255); 
 }
 
 .next-arrow {

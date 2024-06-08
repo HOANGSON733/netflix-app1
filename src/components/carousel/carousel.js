@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// `// eslint-disable jsx-a11y/alt-text `
+>>>>>>> 1da3e5217be024edcabf8ee38c48e4195cfe4f63
 import React, { useEffect, useState } from "react";
 import "./carousel.css";
 import { fetchPopularMovies } from "../../api/Api";
@@ -53,6 +57,7 @@ const Banner = () => {
               style={{ width: "100%", height: "100%" }}
             />
             <div className="text">
+<<<<<<< HEAD
               <h1>Chương trình truyền hình, phim không giới hạn và nhiều nội dung khác</h1>
               <p>Xem ở mọi nơi. Hủy bất kỳ lúc nào.</p>
               <div className="search-carousel">
@@ -65,6 +70,13 @@ const Banner = () => {
                   <button type="submit">Tìm kiếm <i className="fa-solid fa-angle-right"></i></button>
                 </form>
               </div>
+=======
+              <h1>welcome</h1>
+              <p>
+                Millions of movies, TV shows and people to discover. Explore
+                now.
+              </p>
+>>>>>>> 1da3e5217be024edcabf8ee38c48e4195cfe4f63
             </div>
           </div>
         ))
