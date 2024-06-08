@@ -50,61 +50,68 @@ const Phimle = () => {
     <div>
       {loading ? (
         <div className="loading1">
-        <Loading />
+          <Loading />
         </div>
       ) : (
         <div className="film_component">
           <div className="category2">Phim Lẻ</div>
-          <div className="film_componet_loc"> 
-          <input
-            type="text"
-            placeholder="Search movies..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-bar"
-          />
-          <select value={selectedGenre} onChange={(e) => setSelectedGenre(e.target.value)} className="filter-select">
-            <option value="">Phim</option>
-            {theloai.map((genre) => (
-              <option key={genre.id} value={genre.name}>{genre.name}</option>
-            ))}
-          </select>
-          <select value={selectedGenre} onChange={(e) => setSelectedGenre(e.target.value)} className="filter-select">
-            <option value="">All Genres</option>
-            {theloai.map((genre) => (
-              <option key={genre.id} value={genre.name}>{genre.name}</option>
-            ))}
-          </select>
-          <select value={selectedGenre} onChange={(e) => setSelectedGenre(e.target.value)} className="filter-select">
-            <option value="">Year</option>
-            {theloai.map((genre) => (
-              <option key={genre.id} value={genre.name}>{genre.name}</option>
-            ))}
-          </select>
-          <select value={selectedGenre} onChange={(e) => setSelectedGenre(e.target.value)} className="filter-select">
-            <option value="">Quốc gia</option>
-            {theloai.map((genre) => (
-              <option key={genre.id} value={genre.name}>{genre.name}</option>
-            ))}
-          </select>
-          <button className="button">Lọc Phim</button>    
+          <div className="film_componet_loc">
+            <input
+              type="text"
+              placeholder="Search movies..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-bar"
+            />
+            <select value={selectedGenre} onChange={(e) => setSelectedGenre(e.target.value)} className="filter-select">
+              <option value="">Phim</option>
+              {theloai.map((genre) => (
+                <option key={genre.id} value={genre.name}>{genre.name}</option>
+              ))}
+            </select>
+            <select value={selectedGenre} onChange={(e) => setSelectedGenre(e.target.value)} className="filter-select">
+              <option value="">All Genres</option>
+              {theloai.map((genre) => (
+                <option key={genre.id} value={genre.name}>{genre.name}</option>
+              ))}
+            </select>
+            <select value={selectedGenre} onChange={(e) => setSelectedGenre(e.target.value)} className="filter-select">
+              <option value="">Year</option>
+              {theloai.map((genre) => (
+                <option key={genre.id} value={genre.name}>{genre.name}</option>
+              ))}
+            </select>
+            <select value={selectedGenre} onChange={(e) => setSelectedGenre(e.target.value)} className="filter-select">
+              <option value="">Quốc gia</option>
+              {theloai.map((genre) => (
+                <option key={genre.id} value={genre.name}>{genre.name}</option>
+              ))}
+            </select>
+            <button className="button">Lọc Phim</button>
           </div>
           <div className="list2">
             {currentMovies.map((movie) => (
-              <div key={movie.id} className="movie2">
-                <Link to={`/movie/chitiet/${movie.slug}`}>
-                  <img
-                    src={`https://img.phimapi.com/${movie.poster_url}`}
-                    alt={movie.title}
-                  />
-                </Link>
-                <div className="year">
-                  <p>{movie.year}</p>
-                </div>
-                <div className="title2">
+              <div key={movie.id} className="movie1">
+                <div>
                   <Link to={`/movie/chitiet/${movie.slug}`}>
-                    {movie.name}
+                    <img
+                      src={`https://img.phimapi.com/${movie.poster_url}`}
+                      alt={movie.title}
+                    />
                   </Link>
+                </div>
+                <Link to={`/movie/chitiet/${movie.slug}`}>
+                  <div class="overlay1">
+                    <div class="overlay-content1">
+                      <h3>{movie.name}</h3>
+                    </div>
+                  </div>
+                </Link>
+                {/* <div className="year">
+              <p>{movie.year}</p>
+            </div> */}
+                <div className="title">
+                  <Link to={`/movie/detailsmovie/${movie.slug}`}>{movie.name}</Link>
                 </div>
               </div>
             ))}

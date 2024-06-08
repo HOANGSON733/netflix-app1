@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./home.css";
 import Carousel from "../../components/carousel/carousel";
+import Loading from './../../components/loading/loading';
 
 // Tạo component NextArrow
 const NextArrow = ({ onClick }) => (
@@ -94,97 +95,102 @@ const PopularMoviesPage = () => {
   };
 
   return (
-    <div>
+    <>{popularMovies.length>0 && phimle.length>0 && hoathinh.length>0 && TvShow.length>0 ? (
       <div>
-        <Carousel />
-      </div>
-      <div className="list">
-        <h1>Phim Mới Cập Nhật</h1>
-        <Slider {...settings}>
-          {popularMovies.map((movie) => (
-            <div key={movie.id} className="movie">
-              <div className="movie_img">
-                
-                <Link to={`/movie/chitiet/${movie.slug}`}>
-                  <img src={`${movie.poster_url}`} alt={movie.name} />
-                  
-                </Link>
-                {movie.tiem}
-              </div>
-              <div>
-                <h2 className="an">
-                  <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
-                </h2>
-              </div>
-            </div>
-          ))}
-          
-        </Slider>
-        <h1>Phim Lẻ</h1>
-        <Slider {...settings}>
-          {phimle.map((movie) => (
-            <div key={movie.id} className="movie">
-              <div className="movie_img">
-                <Link to={`/movie/chitiet/${movie.slug}`}>
-                  <img
-                    src={`https://img.phimapi.com/${movie.poster_url}`}
-                    alt={movie.name}
-                  />
-                </Link>
-              </div>
-              <div>
-                <h2 className="an">
-                  <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
-                </h2>
-              </div>
-            </div>
-          ))}
-        </Slider>
-        <br />
-        <h1>Phim Hoạt Hình</h1>
-        <Slider {...settings}>
-          {hoathinh.map((movie) => (
-            <div key={movie.id} className="movie">
-              <div className="movie_img">
-                <Link to={`/movie/chitiet/${movie.slug}`}>
-                  <img
-                    src={`https://img.phimapi.com/${movie.poster_url}`}
-                    alt={movie.name}
-                  />
-                </Link>
-              </div>
-              <div>
-                <h2 className="an">
-                  <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
-                </h2>
-              </div>
-            </div>
-          ))}
-        </Slider>
+        <div>
+          <Carousel />
+        </div>
+        <div className="list">
+          <h1><i class="fa-solid fa-clapperboard"></i> Phim Mới Cập Nhật</h1>
+          <Slider {...settings}>
+            {popularMovies.map((movie) => (
+              <div key={movie.id} className="movie">
+                <div className="movie_img">
 
-        <h1>TvShow</h1>
-        <Slider {...settings}>
-          {TvShow.map((movie) => (
-            <div key={movie.id} className="movie">
-              <div className="movie_img">
-                <Link to={`/movie/chitiet/${movie.slug}`}>
-                  <img
-                    src={`https://img.phimapi.com/${movie.poster_url}`}
-                    alt={movie.name}
-                  />
-                </Link>
+                  <Link to={`/movie/chitiet/${movie.slug}`}>
+                    <img src={`${movie.poster_url}`} alt={movie.name} />
+
+                  </Link>
+                  {movie.tiem}
+                </div>
+                <div>
+                  <h2 className="an">
+                    <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
+                  </h2>
+                </div>
               </div>
-              <div>
-                <h2 className="an">
-                  <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
-                </h2>
+            ))}
+
+          </Slider>
+          <h1><i class="fa-solid fa-clapperboard"></i> Phim Lẻ</h1>
+          <Slider {...settings}>
+            {phimle.map((movie) => (
+              <div key={movie.id} className="movie">
+                <div className="movie_img">
+                  <Link to={`/movie/chitiet/${movie.slug}`}>
+                    <img
+                      src={`https://img.phimapi.com/${movie.poster_url}`}
+                      alt={movie.name}
+                    />
+                  </Link>
+                </div>
+                <div>
+                  <h2 className="an">
+                    <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
+                  </h2>
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+          <br />
+          <h1><i class="fa-solid fa-clapperboard"></i> Phim Hoạt Hình</h1>
+          <Slider {...settings}>
+            {hoathinh.map((movie) => (
+              <div key={movie.id} className="movie">
+                <div className="movie_img">
+                  <Link to={`/movie/chitiet/${movie.slug}`}>
+                    <img
+                      src={`https://img.phimapi.com/${movie.poster_url}`}
+                      alt={movie.name}
+                    />
+                  </Link>
+                </div>
+                <div>
+                  <h2 className="an">
+                    <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
+                  </h2>
+                </div>
+              </div>
+            ))}
+          </Slider>
+
+          <h1><i class="fa-solid fa-clapperboard"></i> TvShow</h1>
+          <Slider {...settings}>
+            {TvShow.map((movie) => (
+              <div key={movie.id} className="movie">
+                <div className="movie_img">
+                  <Link to={`/movie/chitiet/${movie.slug}`}>
+                    <img
+                      src={`https://img.phimapi.com/${movie.poster_url}`}
+                      alt={movie.name}
+                    />
+                  </Link>
+                </div>
+                <div>
+                  <h2 className="an">
+                    <Link to={`/movie/chitiet/${movie.slug}`}>{movie.name}</Link>
+                  </h2>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
-      
-    </div>
+    ) : (
+      <Loading />
+    )}
+
+    </>
   );
 };
 

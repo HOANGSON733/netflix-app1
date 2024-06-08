@@ -1,13 +1,22 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import "./carousel.css";
 import { fetchPopularMovies } from "../../api/Api";
-import { Link } from 'react-router-dom'
 
 const Banner = () => {
   const [movies, setPhimCapNhat] = useState([]);
   const [slideIndex, setSlideIndex] = useState(0);
-  
+  const [keyword, setKeyword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      window.location.href = `/movie/search/keyword/${keyword}`;
+    }
+  };
+
+  const handleClear = () => {
+    setKeyword('');
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +45,7 @@ const Banner = () => {
         movies.map((item, index) => (
           <div
             className={`mySlides fade ${index === slideIndex ? "active" : ""}`}
-            key={item.id || index} // Use a unique key
+            key={item.id || index}
           >
             <img
               src={`${item.thumb_url}`}
@@ -44,28 +53,23 @@ const Banner = () => {
               style={{ width: "100%", height: "100%" }}
             />
             <div className="text">
-              <h1>welcome .</h1>
-              <p>
-                Millions of movies, TV shows and people to discover. Explore
-                now.
-              </p>
+              <h1>Chương trình truyền hình, phim không giới hạn và nhiều nội dung khác</h1>
+              <p>Xem ở mọi nơi. Hủy bất kỳ lúc nào.</p>
+              <div className="search-carousel">
+                <form onSubmit={handleSubmit}>
+                  <input
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
+                    placeholder="Tìm kiếm phim"
+                  />
+                  <button type="submit">Tìm kiếm <i className="fa-solid fa-angle-right"></i></button>
+                </form>
+              </div>
             </div>
           </div>
         ))
       ) : (
-        <div className={`mySlides`}>
-          <img
-            src={`./v5XyXZe8FADw8iHupB4L7QOAwH9.jpg`}
-            style={{ width: "100%", height: "100%" }}
-          />
-          <div className="text">
-            <h1>welcome .</h1>
-            <p>
-              Millions of movies, TV shows and people to discover. Explore now.
-            </p>
-          </div>
-          
-        </div>
+        <></>
       )}
     </div>
   );

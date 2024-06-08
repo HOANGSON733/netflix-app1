@@ -7,6 +7,7 @@ import "./chitiet.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import PhimTuongTu from '../phimtuongtu/phimtuongtu'
 
 const Chitiet = () => {
   const [loading, setLoading] = useState(true);
@@ -16,7 +17,7 @@ const Chitiet = () => {
   const [categoryNames, setCategoryNames] = useState([]);
   const [countryNames, setCountryNames] = useState([]);
   const [showTrailer, setShowTrailer] = useState(false);
-  
+
   const getEmbedUrl = (url) => {
     const videoId = url.split('v=')[1];
     const ampersandPosition = videoId.indexOf('&');
@@ -81,17 +82,20 @@ const Chitiet = () => {
       >
         <div className="chitiet__poster">
           <img src={chitiet.poster_url} alt={chitiet.name} />
-          <Link to={`/movie/chitietphim/watch/${chitiet.slug}`}>
-            <p className="chitiet_poster_content">XEM PHIM</p>
-          </Link>
+          <div className="watch">
+            <Link to={`/movie/chitietphim/watch/${chitiet.slug}`}>
+              <p className="">XEM PHIM</p>
+            </Link>
+            <button className="" onClick={() => setShowTrailer(!showTrailer)}>
+              {showTrailer ? "Close Trailer" : "Trailer"}
+            </button>
+          </div>
         </div>
         <div className="chitiet__info">
           <h1>{chitiet.name}</h1>
           {chitiet.trailer_url && (
             <div className="trailer">
-              <button className="btn trailer-btn" onClick={() => setShowTrailer(!showTrailer)}>
-                {showTrailer ? "Close Trailer" : "Trailer"}
-              </button>
+
               {showTrailer && (
                 <iframe className="iframe"
                   title="YouTube Video"
@@ -107,53 +111,56 @@ const Chitiet = () => {
           )}
           <div className="P1">
             <p>Trạng thái: </p>
-            <p>{chitiet.episode_current}</p>
+            <h5>{chitiet.episode_current}</h5>
           </div>
           <div className="P1">
             <p>Số tập: </p>
-            <p>{chitiet.episode_total}</p>
+            <h5>{chitiet.episode_total}</h5>
           </div>
           <div className="P1">
             <p>Thời lượng: </p>
-            <p>{chitiet.time}</p>
+            <h5>{chitiet.time}</h5>
           </div>
           <div className="P1">
             <p>Năm phát hành: </p>
-            <p>{chitiet.year}</p>
+            <h5>{chitiet.year}</h5>
           </div>
           <div className="P1">
             <p>Chất lượng: </p>
-            <p>{chitiet.quality}</p>
+            <h5>{chitiet.quality}</h5>
           </div>
           <div className="P1">
             <p>Ngôn ngữ: </p>
-            <p>{chitiet.lang}</p>
+            <h5>{chitiet.lang}</h5>
           </div>
           <div className="P1">
             <p>Thể Loại: </p>
-            <p>{categoryNames.join(", ")}</p>
+            <h5>{categoryNames.join(", ")}</h5>
           </div>
           <div className="P1">
             <p>Đạo diễn: </p>
-            <p>{chitiet.director}</p>
+            <h5>{chitiet.director}</h5>
           </div>
           <div className="P1">
             <p>Diễn viên:</p>
-            <p>{chitiet.actor.join(", ")}</p>
-          </div> 
+            <h5>{chitiet.actor.join(", ")}</h5>
+          </div>
           <div className="P1">
             <p>Quốc gia: </p>
-            <p>{countryNames.join(", ")}</p>
+            <h5>{countryNames.join(", ")}</h5>
           </div>
         </div>
       </div>
-      <div className="slider-container">
+      <div>
+        <PhimTuongTu />
+      </div>
+      {/* <div className="slider-container">
         <Slider {...settings}>
           <div><img src={chitiet.poster_url} alt={chitiet.name} /></div>
           <div><img src={chitiet.poster_url} alt={chitiet.name} /></div>
           <div><img src={chitiet.poster_url} alt={chitiet.name} /></div>
         </Slider>
-      </div>
+      </div> */}
     </div>
   );
 };

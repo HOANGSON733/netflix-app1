@@ -10,11 +10,11 @@ const Navbar = () => {
   const [keyword, setKeyword] = useState("");
   const [theloai, setTheloai] = useState([]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Implement the search redirect logic
-    window.location.href = `/movie/search/keyword/${keyword}`;
-  };
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      // Implement the search redirect logic
+      window.location.href = `/movie/search/keyword/${keyword}`;
+    };
 
   const handleDropdownClick = () => {
     setShowDropdown(!showDropdown);

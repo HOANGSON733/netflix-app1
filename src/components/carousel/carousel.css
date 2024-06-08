@@ -26,13 +26,11 @@
   height: 100%;
   width: 100%;
   z-index: 2;
-  background: linear-gradient(
-    to bottom,
-    rgba(4, 21, 45, 0.8) 0%,
-    rgba(4, 21, 45, 0.6) 30%,
-    rgba(4, 21, 45, 0.6) 50%,
-    rgba(4, 21, 45, 1) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(4, 21, 45, 0.8) 0%,
+      rgba(4, 21, 45, 0.6) 30%,
+      rgba(4, 21, 45, 0.6) 50%,
+      rgba(4, 21, 45, 1) 100%);
 }
 
 .mySlides {
@@ -50,50 +48,31 @@
   align-items: center;
   justify-content: center;
   margin-top: -500px;
+  padding: 0 15%;
+
 }
 
 .text h1 {
   color: #f2f2f2;
-  font-size: 90px;
+  font-size: 40px;
   font-weight: 600;
   text-transform: capitalize;
   z-index: 5;
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
   text-align: center;
   padding: 5px;
 }
 
-/* .text p {
+.text p {
   color: #f2f2f2;
   font-size: 25px;
-  font-weight: 600;
+  padding: 10px;
   text-transform: capitalize;
   z-index: 5;
-  font-family: "Inter", sans-serif;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 50px 25%;
-}
-
-.search input {
-  z-index: 6;
-  width: 100%;
-  padding: 16px 30px;
-  border: none;
-  background-color: #fff;
-  border-radius: 20em 0 0 20em;
-  font-size: 21px;
-}
-
-.search a {
-  z-index: 6;
-} */
 
 /* .search button {
   z-index: 5;
@@ -105,3 +84,58 @@
   border-radius: 0 20em 20em 0;
   background: linear-gradient(98.37deg, #f89e00 .99%, #da2f68 100%);
 } */
+.search-carousel {
+  display: flex;
+  justify-content: center;  /* Center the form */
+  align-items: center;
+  margin: 50px auto auto auto;
+  padding: 15px;  /* Add padding for better spacing */
+  position: relative;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);  
+  border-radius: 5px;  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+}
+
+.search-carousel input {
+  width: 500px;
+  font-size: 18px;  /* Slightly smaller font for modern look */
+  height: 55px;
+  padding: 0 120px 0 20px;  /* More padding for better spacing */
+  background-color: rgba(255, 255, 255, 0.2);  /* Lightly transparent background */
+  border: none;  /* Remove border */
+  border-radius: 3px 0 0 3px;  /* Rounded corners, only left */
+  color: #fff;
+  outline: none;  /* Remove outline */
+  transition: background-color 0.3s;  /* Smooth transition on focus */
+}
+
+.search-carousel input::placeholder {
+  color: #bbb;  /* Light gray placeholder text */
+}
+
+.search-carousel input:focus {
+  background-color: rgba(255, 255, 255, 0.2);  /* Change background on focus */
+  transition: background-color 0.3s;  /* Smooth transition */
+}
+
+.search-carousel button {
+  background-color: #e50914;  /* Netflix red */
+  height: 55px;
+  border: none;  /* Remove border */
+  border-radius: 0 3px 3px 0;  /* Rounded corners, only right */
+  color: white;  /* White text */
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;  /* Pointer cursor on hover */
+  padding: 0 30px;  /* Padding for better click area */
+  transition: background-color 0.3s;  /* Smooth transition on hover */
+}
+
+.search-carousel button:hover {
+  background-color: #f40612;  /* Slightly brighter red on hover */
+}
+
+.search-carousel button:active {
+  background-color: #b0060e;  /* Darker red on click */
+}
